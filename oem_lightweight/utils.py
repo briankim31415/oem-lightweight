@@ -5,6 +5,19 @@ import numpy as np
 np.seterr(divide='ignore', invalid='ignore')
 
 
+def _configure_opencv_logging():
+    try:
+        if hasattr(cv2, "setLogLevel") and hasattr(cv2, "LOG_LEVEL_ERROR"):
+            cv2.setLogLevel(cv2.LOG_LEVEL_ERROR)
+        elif hasattr(cv2, "utils") and hasattr(cv2.utils, "logging"):
+            cv2.utils.logging.setLogLevel(cv2.utils.logging.LOG_LEVEL_ERROR)
+    except Exception:
+        pass
+
+
+_configure_opencv_logging()
+
+
 def ensure_dir(path):
     if not os.path.isdir(path):
         os.makedirs(path)

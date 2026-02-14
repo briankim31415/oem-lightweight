@@ -110,6 +110,8 @@ target/
 
 # Jupyter Notebook
 .ipynb_checkpoints
+fasterseg_demo.ipynb
+sparsemask_demo.ipynb
 
 # pyenv
 .python-version
