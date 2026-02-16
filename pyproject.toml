@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "oem-lightweight"
+version = "0.1.0"
+description = "OpenEarthMap lightweight model utilities."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy==1.26.4",
+    "opencv-python==4.11.0.86",
+    "torch",
+    "torchvision",
+    "thop",
+]
+
+[tool.setuptools]
+py-modules = ["config"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["oem_lightweight*", "fasterseg_api*", "sparsemask_api*"]
